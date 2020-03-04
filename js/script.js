@@ -9,7 +9,7 @@ if (randomNumber == 1) {
 } else if (randomNumber == 2) {
     computerMove = 'papier';
 } else if (randomNumber == 3) {
-    computerMove = 'kamien';
+    computerMove = 'nozyce';
 }
 
 printMessage('Mój ruch to: ' + computerMove);
@@ -25,7 +25,7 @@ if (playerInput == '1') {
 } else if (randomNumber == 2) {
     computerMove = 'papier';
 } else if (randomNumber == 3) {
-    computerMove = 'kamien';
+    computerMove = 'nozyce';
 }
 
 

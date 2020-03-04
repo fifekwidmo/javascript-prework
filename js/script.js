@@ -23,9 +23,9 @@ let playerMove = 'nieznany ruch';
 if (playerInput == '1') {
     playerMove = 'kamień';
 } else if (randomNumber == '2') {
-    computerMove = 'papier';
+    playerMove = 'papier';
 } else if (randomNumber == '3') {
-    computerMove = 'nozyce';
+    playerMove = 'nozyce';
 }
 
 

@@ -3,3 +3,53 @@
 *::after {
     box-sizing: border-box;
 }
+
+h1 {
+    text-align: center;
+}
+
+.instructions {
+    text-align: center;
+    margin: 0 100px;
+}
+
+.button {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+button {
+    height: 200px;
+    width: 200px;
+    font-size: 40px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+#play-rock {
+    background-image: url('https://h2ocrusade.com/wp-content/uploads/2013/02/693517-abstract-art-balance-balancing-build-building-careful-create-creation-photography-rock-ro-200x200.jpg');
+}
+
+#play-paper {
+    background-image: url('https://www.stadsing.com/Admin/Public/GetImage.ashx?Width=200&Height=200&Crop=5&Compression=80&Image=/Files/Images/XPI/1e24c80e-896f-5b76-1c30-296bc77e3edc.jpg');
+}
+
+#play-scissors {
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRvUzCGR9VY9gZvEDeQ5bpGNh_-DR8OCV8G-f71bYlRI7GTD9PO');
+}
+
+#messages {
+    text-align: center;
+    margin: 30px 50px;
+    font-size: 30px;
+    border: 1px solid black;
+}
+
+.active {
+    transform: scale(1.5) translate(-50% -50%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}

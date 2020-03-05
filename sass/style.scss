@@ -26,6 +26,7 @@ button {
     font-size: 40px;
     font-weight: bold;
     text-transform: uppercase;
+    transition: 1s linear;
 }
 
 #play-rock {
@@ -47,9 +48,29 @@ button {
     border: 1px solid black;
 }
 
+.animation {
+    animation: item linear 3s 1s;
+}
+
 .active {
-    transform: scale(1.5) translate(-50% -50%);
-    position: absolute;
-    top: 50%;
-    left: 50%;
+    transform: rotate(360deg);
+}
+
+@keyframes item {
+    0% {
+        color: black;
+        font-weight: normal;
+        border: none;
+        z-index: 2;
+    }
+    30% {
+        color: red;
+        font-weight: bold;
+        transform: scale(4.0);
+        z-index: 2;
+    }
+    100% {
+        color: black;
+        font-weight: normal;
+    }
 }

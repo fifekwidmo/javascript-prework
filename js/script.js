@@ -81,12 +81,23 @@ function playGame(playerInput) {
     displayResults(argComputerMove, argPlayerMove)
 }
 
+let messagesAnimation = document.getElementById('messages');
+
 document.getElementById('play-rock').addEventListener('click', function() {
     playGame(1);
+    this.classList.toggle('active');
+    messagesAnimation.classList.toggle("animation");
+    setTimeout(function() { messagesAnimation.classList.remove("animation"); }, 2000);
 });
 document.getElementById('play-paper').addEventListener('click', function() {
     playGame(2);
+    this.classList.toggle('active');
+    messagesAnimation.classList.toggle("animation");
+    setTimeout(function() { messagesAnimation.classList.remove("animation"); }, 2000);
 });
 document.getElementById('play-scissors').addEventListener('click', function() {
     playGame(3);
+    this.classList.toggle('active');
+    messagesAnimation.classList.toggle("animation");
+    setTimeout(function() { messagesAnimation.classList.remove("animation"); }, 2000);
 });

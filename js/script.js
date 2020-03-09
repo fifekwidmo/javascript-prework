@@ -1,3 +1,8 @@
+// global
+let computerWins = 0;
+let playerWins = 0;
+let draws = 0;
+
 function playGame(playerInput) {
     clearMessages()
         // let playerInput = prompt('Wybierz swój ruch! 1: kamień, 2: papier, 3: nożyce.');
@@ -14,21 +19,30 @@ function playGame(playerInput) {
         return 'nieznany ruch';
     }
 
+    //dodalem jesli ktos wygra to do zmiennej playerWins lub computerWins inkrementuje i dodaje plus 1
+
     function displayResults(argComputerMove, argPlayerMove) {
         if (argComputerMove == 'kamień' && argPlayerMove == 'papier') {
             printMessage('Ty wygrywasz!');
+            playerWins++;
         } else if (argComputerMove == 'kamień' && argPlayerMove == 'nozyce') {
             printMessage('Komputer wygrał!');
+            computerWins++;
         } else if (argComputerMove == 'papier' && argPlayerMove == 'nozyce') {
             printMessage('Ty wygrywasz!');
+            playerWins++;
         } else if (argComputerMove == 'papier' && argPlayerMove == 'kamień') {
             printMessage('Komputer wygrał!');
+            computerWins++;
         } else if (argComputerMove == 'nozyce' && argPlayerMove == 'papier') {
             printMessage('Komputer wygrał!');
+            computerWins++;
         } else if (argComputerMove == 'nozyce' && argPlayerMove == 'kamień') {
             printMessage('Ty wygrywasz!');
+            playerWins++;
         } else if (argPlayerMove == 'nieznany ruch') {
             printMessage('Przegrana walkowerem')
+            computerWins++;
         } else if (argComputerMove == argPlayerMove)
             printMessage('Remis')
     }
@@ -77,6 +91,11 @@ function playGame(playerInput) {
     //     printMessage('Przegrana walkowerem')
     // } else(computerMove == playerMove)
     // printMessage('Remis')
+
+    //szukam po id w DOM i pokazuje w niej playerwins/computer wins
+    document.getElementById("humanResult").innerHTML = playerWins;
+    document.getElementById("computerResult").innerHTML = computerWins;
+    //tu do displayresults dodalem playerWins i computerWins
 
     displayResults(argComputerMove, argPlayerMove)
 }

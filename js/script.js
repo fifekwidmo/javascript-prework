@@ -92,12 +92,13 @@ function playGame(playerInput) {
     // } else(computerMove == playerMove)
     // printMessage('Remis')
 
-    //szukam po id w DOM i pokazuje w niej playerwins/computer wins
+
+
+    displayResults(argComputerMove, argPlayerMove, playerWins, computerWins)
+        //szukam po id w DOM i pokazuje w niej playerwins/computer wins
     document.getElementById("humanResult").innerHTML = playerWins;
     document.getElementById("computerResult").innerHTML = computerWins;
     //tu do displayresults dodalem playerWins i computerWins
-
-    displayResults(argComputerMove, argPlayerMove)
 }
 
 let messagesAnimation = document.getElementById('messages');

@@ -96,8 +96,8 @@ function playGame(playerInput) {
 
     displayResults(argComputerMove, argPlayerMove, playerWins, computerWins)
         //szukam po id w DOM i pokazuje w niej playerwins/computer wins
-    document.getElementById("humanResult").innerHTML = playerWins;
-    document.getElementById("computerResult").innerHTML = computerWins;
+    document.getElementById("humanResult").innerHTML = ("Wynik użytkownika " + playerWins);
+    document.getElementById("computerResult").innerHTML = ("Wynik komputera " + computerWins);
     //tu do displayresults dodalem playerWins i computerWins
 }
 

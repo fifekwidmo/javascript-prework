@@ -5,8 +5,10 @@ let draws = 0;
 
 function playGame(playerInput) {
     clearMessages()
+    let playerOption;
 
     function getMoveName(argMoveId) {
+
         if (argMoveId == 1) {
             return 'kamień';
         } else if (argMoveId == 2) {
@@ -18,41 +20,43 @@ function playGame(playerInput) {
         return 'nieznany ruch';
     }
     //dodalem jesli ktos wygra to do zmiennej playerWins lub computerWins inkrementuje i dodaje plus 1
-    function displayResults(argComputerMove, argPlayerMove) {
-        if (argComputerMove == 'kamień' && argPlayerMove == 'papier') {
+    function displayResults() {
+        let randomNumber = Math.floor(Math.random() * 3 + 1);
+        console.log('Wylosowana liczba to: ' + randomNumber);
+        let computerMove = getMoveName(randomNumber);
+        printMessage('Komputera ruch to: ' + computerMove);
+        console.log('Gracz wpisał: ' + playerInput);
+        let playerMove = getMoveName(playerInput);
+        printMessage('Twój ruch to: ' + playerMove);
+
+        if (computerMove == 'kamień' && playerMove == 'papier') {
             printMessage('Ty wygrywasz!');
             playerWins++;
-        } else if (argComputerMove == 'kamień' && argPlayerMove == 'nozyce') {
+        } else if (computerMove == 'kamień' && playerMove == 'nozyce') {
             printMessage('Komputer wygrał!');
             computerWins++;
-        } else if (argComputerMove == 'papier' && argPlayerMove == 'nozyce') {
+        } else if (computerMove == 'papier' && playerMove == 'nozyce') {
             printMessage('Ty wygrywasz!');
             playerWins++;
-        } else if (argComputerMove == 'papier' && argPlayerMove == 'kamień') {
+        } else if (computerMove == 'papier' && playerMove == 'kamień') {
             printMessage('Komputer wygrał!');
             computerWins++;
-        } else if (argComputerMove == 'nozyce' && argPlayerMove == 'papier') {
+        } else if (computerMove == 'nozyce' && playerMove == 'papier') {
             printMessage('Komputer wygrał!');
             computerWins++;
-        } else if (argComputerMove == 'nozyce' && argPlayerMove == 'kamień') {
+        } else if (computerMove == 'nozyce' && playerMove == 'kamień') {
             printMessage('Ty wygrywasz!');
             playerWins++;
-        } else if (argPlayerMove == 'nieznany ruch') {
+        } else if (playerMove == 'nieznany ruch') {
             printMessage('Przegrana walkowerem')
             computerWins++;
-        } else if (argComputerMove == argPlayerMove)
+        } else if (computerMove == playerMove)
             printMessage('Remis')
     }
 
-    let randomNumber = Math.floor(Math.random() * 3 + 1);
-    console.log('Wylosowana liczba to: ' + randomNumber);
-    let argComputerMove = getMoveName(randomNumber);
-    printMessage('Komputera ruch to: ' + argComputerMove);
-    console.log('Gracz wpisał: ' + playerInput);
-    let argPlayerMove = getMoveName(playerInput);
-    printMessage('Twój ruch to: ' + argPlayerMove);
 
-    displayResults(argComputerMove, argPlayerMove, playerWins, computerWins)
+
+    displayResults()
         //szukam po id w DOM i pokazuje w niej playerwins/computer wins
     document.getElementById("humanResult").innerHTML = ("Wynik użytkownika " + playerWins);
     document.getElementById("computerResult").innerHTML = ("Wynik komputera " + computerWins);

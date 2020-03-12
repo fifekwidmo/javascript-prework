@@ -1,26 +1,24 @@
 // global
 let computerWins = 0;
-let playerWins = 0;
-let draws = 0;
+playerWins = 0;
+draws = 0;
 
-function playGame(playerInput) {
+let playGame = function(playerInput) {
     clearMessages()
-    let playerOption;
+    let getMoveName = function(argMoveId) {
 
-    function getMoveName(argMoveId) {
-
-        if (argMoveId == 1) {
-            return 'kamień';
-        } else if (argMoveId == 2) {
-            return 'papier';
-        } else if (argMoveId == 3) {
-            return 'nozyce';
+            if (argMoveId == 1) {
+                return 'kamień';
+            } else if (argMoveId == 2) {
+                return 'papier';
+            } else if (argMoveId == 3) {
+                return 'nozyce';
+            }
+            printMessage('Nie znam ruchu o id ' + argMoveId + '.');
+            return 'nieznany ruch';
         }
-        printMessage('Nie znam ruchu o id ' + argMoveId + '.');
-        return 'nieznany ruch';
-    }
-    //dodalem jesli ktos wygra to do zmiennej playerWins lub computerWins inkrementuje i dodaje plus 1
-    function displayResults() {
+        //dodalem jesli ktos wygra to do zmiennej playerWins lub computerWins inkrementuje i dodaje plus 1
+    let displayResults = function() {
         let randomNumber = Math.floor(Math.random() * 3 + 1);
         console.log('Wylosowana liczba to: ' + randomNumber);
         let computerMove = getMoveName(randomNumber);
@@ -53,9 +51,6 @@ function playGame(playerInput) {
         } else if (computerMove == playerMove)
             printMessage('Remis')
     }
-
-
-
     displayResults()
         //szukam po id w DOM i pokazuje w niej playerwins/computer wins
     document.getElementById("humanResult").innerHTML = ("Wynik użytkownika " + playerWins);

@@ -2,48 +2,52 @@
 let computerWins = 0;
 playerWins = 0;
 draws = 0;
+const stone = 'kamień';
+scizzors = 'nozyce';
+paper = 'papier';
+playerCommunicat = 'Ty wygrywasz!';
+computerCommunicat = 'Komptuer wygrał!';
 
 let playGame = function(playerInput) {
     clearMessages()
     let getMoveName = function(argMoveId) {
 
             if (argMoveId == 1) {
-                return 'kamień';
+                return stone;
             } else if (argMoveId == 2) {
-                return 'papier';
+                return paper;
             } else if (argMoveId == 3) {
-                return 'nozyce';
+                return scizzors;
             }
             printMessage('Nie znam ruchu o id ' + argMoveId + '.');
             return 'nieznany ruch';
         }
         //dodalem jesli ktos wygra to do zmiennej playerWins lub computerWins inkrementuje i dodaje plus 1
+    let randomNumber = Math.floor(Math.random() * 3 + 1);
+    console.log('Wylosowana liczba to: ' + randomNumber);
+    let computerMove = getMoveName(randomNumber);
+    printMessage('Komputera ruch to: ' + computerMove);
+    console.log('Gracz wpisał: ' + playerInput);
+    let playerMove = getMoveName(playerInput);
+    printMessage('Twój ruch to: ' + playerMove);
     let displayResults = function() {
-        let randomNumber = Math.floor(Math.random() * 3 + 1);
-        console.log('Wylosowana liczba to: ' + randomNumber);
-        let computerMove = getMoveName(randomNumber);
-        printMessage('Komputera ruch to: ' + computerMove);
-        console.log('Gracz wpisał: ' + playerInput);
-        let playerMove = getMoveName(playerInput);
-        printMessage('Twój ruch to: ' + playerMove);
-
-        if (computerMove == 'kamień' && playerMove == 'papier') {
-            printMessage('Ty wygrywasz!');
+        if (computerMove == stone && playerMove == paper) {
+            printMessage(playerCommunicat);
             playerWins++;
-        } else if (computerMove == 'kamień' && playerMove == 'nozyce') {
-            printMessage('Komputer wygrał!');
+        } else if (computerMove == stone && playerMove == scizzors) {
+            printMessage(computerCommunicat);
             computerWins++;
-        } else if (computerMove == 'papier' && playerMove == 'nozyce') {
-            printMessage('Ty wygrywasz!');
+        } else if (computerMove == paper && playerMove == scizzors) {
+            printMessage(playerCommunicat);
             playerWins++;
-        } else if (computerMove == 'papier' && playerMove == 'kamień') {
-            printMessage('Komputer wygrał!');
+        } else if (computerMove == paper && playerMove == stone) {
+            printMessage(computerCommunicat);
             computerWins++;
-        } else if (computerMove == 'nozyce' && playerMove == 'papier') {
-            printMessage('Komputer wygrał!');
+        } else if (computerMove == scizzors && playerMove == paper) {
+            printMessage(computerCommunicat);
             computerWins++;
-        } else if (computerMove == 'nozyce' && playerMove == 'kamień') {
-            printMessage('Ty wygrywasz!');
+        } else if (computerMove == scizzors && playerMove == stone) {
+            printMessage(playerCommunicat);
             playerWins++;
         } else if (playerMove == 'nieznany ruch') {
             printMessage('Przegrana walkowerem')

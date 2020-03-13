@@ -1,12 +1,12 @@
 // global
 let computerWins = 0;
-playerWins = 0;
-draws = 0;
+let playerWins = 0;
+let draws = 0;
 const stone = 'kamień';
-scizzors = 'nozyce';
-paper = 'papier';
-playerCommunicat = 'Ty wygrywasz!';
-computerCommunicat = 'Komptuer wygrał!';
+const scizzors = 'nozyce';
+const paper = 'papier';
+const playerCommunicat = 'Ty wygrywasz!';
+const computerCommunicat = 'Komptuer wygrał!';
 
 let playGame = function(playerInput) {
     clearMessages()
